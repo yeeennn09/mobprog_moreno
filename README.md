@@ -47,3 +47,8 @@ flutter run
 Follow the Requirements for Submission in the activity file: the
 discussion answer in README.md, screenshots before and after the
 enhancement, and the link to your GitHub project repository.
+
+
+## Discussion
+
+First, I Implemented the imageAsset so I can display my images from my assets folder. For the 2nd enhancement it says that the avatar should uses a profile image. I replace the default profile icon and added the backgroundImage: AssetImage to load the picture from my assets folder into the CircleAvatar Widget. I also used the variable avatarAsset so each post can have different profile pictures. Lastly, for the 3rd enhancement. Change the like and comment icon buttons into widget-based buttons.
