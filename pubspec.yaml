@@ -9,7 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_screenutil: ^5.9.3
   material_ui: ^1.1.0
+  provider: ^6.1.5+1
 
 dev_dependencies:
   flutter_test:
@@ -18,3 +20,16 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
+  # Fonts are optional. The font files are NOT included in this
+  # boilerplate, so this block is commented out. To use them, add
+  # your font files to assets/fonts/ and uncomment these lines.
+  # fonts:
+  #   - family: Klavika
+  #     fonts:
+  #       - asset: assets/fonts/KlavikaBoldBold.otf
+  #   - family: Frutiger
+  #     fonts:
+  #       - asset: assets/fonts/FrutigerLTStd-Roman.otf
