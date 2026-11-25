@@ -1,11 +1,8 @@
+
 import 'package:material_ui/material_ui.dart';
 import '../widgets/newsfeed_card.dart';
 
 // The newsfeed: a list of two posts.
-// TODO: Post 1 is YOUR post. Replace 'Your Name' with your own name
-// and write your own post text.
-// TODO: Post 2 is by a CLASSMATE you pick. Replace "Classmate's Name"
-// with their name and write their post text.
 
 class Post {
   Post({
@@ -13,14 +10,18 @@ class Post {
     required this.date,
     required this.text,
     required this.likes,
+    required this.comments,
     this.imageAsset,
+    required this.avatarAsset,
   });
 
   final String authorName;
   final String date;
   final String text;
   int likes;
+  final List<String> comments;
   final String? imageAsset;
+  final String avatarAsset;
 }
 
 class NewsFeedScreen extends StatefulWidget {
@@ -32,21 +33,24 @@ class NewsFeedScreen extends StatefulWidget {
 
 class _NewsFeedScreenState extends State<NewsFeedScreen> {
   final List<Post> _posts = [
+    // YOUR POST
     Post(
-      authorName: 'Your Name',
+      authorName: 'Noreen Moreno',
       date: 'October 11',
       text: 'Kamusta!',
       likes: 100,
-      imageAsset: null,
+      comments: [],
+      avatarAsset: 'assets/images/Me.jpg',
     ),
+
+    // CLASSMATE'S POST
     Post(
-      authorName: "Classmate's Name",
+      authorName: 'Bernadette Ferrer',
       date: 'December 2',
       text: 'Kicking off the holiday season!',
       likes: 200,
-      // TODO: Add an image file named post_image.png to assets/images/,
-      // or change this path to your own image. If the file is missing,
-      // the card shows a grey placeholder instead of crashing.
+      comments: [],
+      avatarAsset: 'assets/images/classmate.png',
       imageAsset: 'assets/images/post_image.png',
     ),
   ];
@@ -57,7 +61,7 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
     });
   }
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: _posts.length,
@@ -69,9 +73,11 @@ class _NewsFeedScreenState extends State<NewsFeedScreen> {
           text: post.text,
           likes: post.likes,
           imageAsset: post.imageAsset,
+          avatarAsset: post.avatarAsset,
           onLike: () => _likePost(index),
         );
       },
     );
   }
 }
+

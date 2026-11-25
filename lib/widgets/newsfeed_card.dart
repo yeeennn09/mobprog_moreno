@@ -1,4 +1,4 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants.dart';
 import 'custom_text.dart';
@@ -18,6 +18,7 @@ class NewsFeedCard extends StatelessWidget {
     required this.likes,
     this.imageAsset,
     required this.onLike,
+    required this.avatarAsset,
   });
 
   final String authorName;
@@ -25,6 +26,7 @@ class NewsFeedCard extends StatelessWidget {
   final String text;
   final int likes;
   final String? imageAsset;
+  final String avatarAsset;
   final VoidCallback onLike;
 
   @override
@@ -46,7 +48,7 @@ class NewsFeedCard extends StatelessWidget {
                 CircleAvatar(
                   radius: 20.r,
                   backgroundColor: AppColors.lightGrey,
-                  child: const Icon(Icons.person, color: AppColors.grey),
+                  backgroundImage: AssetImage(avatarAsset), // Replace with your own image asset
                 ),
                 SizedBox(width: 10.w),
                 Column(
@@ -125,20 +127,26 @@ class NewsFeedCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _ActionButton(
-                  icon: Icons.thumb_up_outlined,
-                  label: 'Like',
-                  onTap: onLike,
+                Expanded(
+                  child: _ActionButton(
+                    icon: Icons.thumb_up_outlined,
+                    label: 'Like',
+                    onTap: onLike,
+                  ),
                 ),
-                _ActionButton(
-                  icon: Icons.comment_outlined,
-                  label: 'Comment',
-                  onTap: () {},
+                Expanded(
+                  child: _ActionButton(
+                    icon: Icons.comment_outlined,
+                    label: 'Comment',
+                    onTap: () {},
+                  ),
                 ),
-                _ActionButton(
-                  icon: Icons.share_outlined,
-                  label: 'Share',
-                  onTap: () {},
+                Expanded(
+                  child: _ActionButton(
+                    icon: Icons.share_outlined,
+                    label: 'Share',
+                    onTap: () {},
+                  ),
                 ),
               ],
             ),
